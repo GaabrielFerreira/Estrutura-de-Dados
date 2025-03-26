@@ -16,19 +16,15 @@ int pilha_vazia(Pilha *ps) {
 
 /*Verifica se a pilha esta cheia*/
 int pilha_cheia(Pilha *ps) {
-    if(ps->topo == MAXPILHA-1) {
-        printf("\nPilha esta cheia!");
+    if(ps->topo == MAXPILHA-1)
         return 1; //Pilha cheia
-    }
-    else {
-        printf("\nPilha nao esta cheia!");
+    else 
         return 0;
-    }
 }
 
 /*Adiciona um item na pilha*/
 void insere_pilha(Pilha *ps, elem_t x) {
-    if(pilha_cheia) 
+    if(pilha_cheia(ps)) 
         return;
 
     ps->topo++;
@@ -39,9 +35,7 @@ void insere_pilha(Pilha *ps, elem_t x) {
 /*Remove um item da pilha e retorna-o*/
 elem_t remove_pilha(Pilha *ps) {
     int tam = ps->topo;
-    elem_t aux = ps->item[aux];
-
-    printf("\nItem %d removido!", ps->item[aux]);
+    elem_t aux = ps->item[tam];
     ps->topo--;
 
     return aux;
@@ -50,7 +44,7 @@ elem_t remove_pilha(Pilha *ps) {
 /*Retorna o ultimo item da pilha*/
 elem_t elem_topo(Pilha *ps) {
     int tam = ps->topo;
-    elem_t aux = ps->item[aux];
+    elem_t aux = ps->item[tam];
 
     return aux;
 }
