@@ -35,7 +35,6 @@ void insere_inicio(Lista *p_l, elem_t e) {
 // Insere um elemento no final da lista
 void insere_fim(Lista *p_l, elem_t e) {
     if (p_l->tam == MAX) { // Verifica se a lista está cheia
-        printf("Lista cheia!\n");
         return;
     }
 
