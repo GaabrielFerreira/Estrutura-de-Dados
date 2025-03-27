@@ -1,7 +1,7 @@
 /*
   Titulo: Expressao Infixa para Posfixa
   Autores: Gabriel Ferreira RA: 236085
-  Ultima modificacao: 26/03 as 21:13
+  Ultima modificacao: 26/03 as 21:20
   Detalhes: Implemente em linguagem C o algoritmo que transforma uma expressão infixa em posfixa (visto em sala de aula). Este programa deve utilizar o TAD pilha, cuja operações estão definidas no arquivo pilha_estatica.h. A saída, isto é, a expressão posfixa, deve ser armazenada em uma lista estática, cujas operações estão definidas no arquivo lista_estatica.h.
     Considere:
         operandos: caracter de 'A' a 'Z';
@@ -107,7 +107,12 @@ int main() {
         i++;
     }
 
-    insere_fim(&l, remove_pilha(&p)); //Remove ultimo elem da pilha antes do \0
+    
+    while(!pilha_vazia(&p)) { //Remove o que sobrou na pilha depois que a expressao acabou (\0)
+        aux2 = remove_pilha(&p);
+        insere_fim(&l, aux2);
+    }
+    
     printf("\n\nExpressao final (POSFIXA):\n");
     exibe(&l);
 }
